@@ -27,8 +27,7 @@ flowchart TD
     E --> F[6. Restaurar las capacidades locales de Codex]
     F --> G[7. Instalar Unity CLI]
     G --> H[8. Iniciar sesión en Unity]
-    H --> I[9. Activar la licencia]
-    I --> J[Entorno base preparado]
+    H --> I[Entorno base preparado]
 ```
 
 ### Antes de empezar: cómo usar esta guía
