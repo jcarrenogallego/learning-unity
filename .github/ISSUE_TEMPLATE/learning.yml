@@ -1,0 +1,17 @@
+name: Propuesta de aprendizaje
+description: Proponer un concepto o ejercicio para la ruta
+title: "learning: "
+labels: [learning]
+body:
+  - type: textarea
+    id: concept
+    attributes:
+      label: Concepto que quieres aprender
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Qué deberíamos ser capaces de hacer al terminar
+    validations:
+      required: true

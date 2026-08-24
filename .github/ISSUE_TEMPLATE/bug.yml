@@ -1,0 +1,24 @@
+name: Error
+description: Informar de algo que no funciona como se explica
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducirlo
+      description: Explica, paso a paso, qué hiciste.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado obtenido
+    validations:
+      required: true

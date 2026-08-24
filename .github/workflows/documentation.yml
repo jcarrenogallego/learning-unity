@@ -1,0 +1,29 @@
+name: documentation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-documentation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check required learning guides
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f docs/00-ruta-de-aprendizaje.md
+          test -f docs/01-skills.md
+          test -f docs/02-git-y-github.md
+          test -f docs/03-unity-para-desarrolladores-dotnet.md
+          if grep -RInE 'TODO|FIXME|<<<<<<<|=======|>>>>>>>' --include='*.md' .; then
+            echo 'La documentación contiene marcadores sin resolver.'
+            exit 1
+          fi
