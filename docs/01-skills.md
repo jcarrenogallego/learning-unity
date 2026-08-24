@@ -19,7 +19,7 @@ learning-unity/
 └── skills-lock.json
 ```
 
-Codex descubre las capacidades locales desde `.agents/skills`. Cada una tiene una carpeta propia y un archivo llamado exactamente `SKILL.md`. El archivo `skills-lock.json` registra su origen para que la instalación pueda reproducirse en otra copia del repositorio.
+Codex descubre las capacidades locales desde `.agents/skills`. Cada una tiene una carpeta propia y un archivo llamado exactamente `SKILL.md`. El archivo `skills-lock.json` registra su origen y versión. Las carpetas completas están guardadas en Git, por lo que se descargan al clonar el repositorio y no necesitan restaurarse mediante un comando experimental.
 
 ```mermaid
 flowchart LR
@@ -59,12 +59,6 @@ npx skills list --json
 ```
 
 Cada resultado debe indicar los valores literales `"scope": "project"` y una ruta dentro de `learning-unity\.agents\skills`.
-
-Para restaurarlas desde el archivo de bloqueo después de clonar el repositorio:
-
-```powershell
-npx skills experimental_install
-```
 
 ## Regla de selección
 

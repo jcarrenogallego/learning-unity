@@ -24,7 +24,7 @@ flowchart TD
     B --> C[3. Instalar Node.js LTS]
     C --> D[4. Instalar VS Code]
     D --> E[5. Clonar el repositorio]
-    E --> F[6. Restaurar las capacidades locales de Codex]
+    E --> F[6. Comprobar las capacidades locales de Codex]
     F --> G[7. Instalar Unity CLI]
     G --> H[8. Iniciar sesión en Unity]
     H --> I[Entorno base preparado]
@@ -64,7 +64,7 @@ El resultado esperado se parece a `git version 2.x.x`.
 
 ### Paso 3 — Instalar Node.js LTS
 
-No utilizaremos Node.js para programar el juego. Lo necesitamos para ejecutar `npx skills`, la herramienta que restaura las capacidades de Codex incluidas en este repositorio.
+No utilizaremos Node.js para programar el juego. Lo necesitamos para ejecutar `npx skills`, la herramienta que permite comprobar y gestionar las capacidades de Codex incluidas en este repositorio.
 
 ```powershell
 winget install --id OpenJS.NodeJS.LTS --exact --source winget
@@ -110,17 +110,11 @@ code .
 
 > Si ya estás trabajando dentro de este repositorio, no vuelvas a clonarlo. Continúa con el paso siguiente.
 
-### Paso 6 — Restaurar las capacidades locales de Codex
+### Paso 6 — Comprobar las capacidades locales de Codex
 
-Las capacidades especializadas —denominadas `skills` por Codex— pertenecen al repositorio y se encuentran bajo `.agents/skills`. No deben instalarse globalmente en el ordenador.
+Las capacidades especializadas —denominadas `skills` por Codex— pertenecen al repositorio y se encuentran bajo `.agents/skills`. Git las descarga junto con el resto de archivos al clonar el repositorio, por lo que no necesitan una instalación adicional ni deben instalarse globalmente en el ordenador.
 
-Desde la raíz de `learning-unity`, ejecuta:
-
-```powershell
-npx skills experimental_install
-```
-
-Comprueba el resultado:
+Desde la raíz de `learning-unity`, comprueba el resultado:
 
 ```powershell
 npx skills list --json
@@ -132,7 +126,7 @@ Debes ver estas tres capacidades con el valor literal `"scope": "project"`:
 - `unity-cli`;
 - `unity-package-management`.
 
-Sus rutas deben estar dentro de `learning-unity\.agents\skills`. `scope`, `project` y `global` se mantienen en inglés porque son valores literales producidos por la herramienta. Si aparece `"scope": "global"`, detente: la instalación no se hizo desde la raíz del repositorio.
+Sus rutas deben estar dentro de `learning-unity\.agents\skills`. `scope`, `project` y `global` se mantienen en inglés porque son valores literales producidos por la herramienta. Si no aparecen, comprueba que ejecutaste el comando desde la raíz del repositorio y que la carpeta `.agents` existe.
 
 ### Paso 7 — Instalar Unity CLI
 
