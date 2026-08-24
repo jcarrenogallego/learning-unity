@@ -25,7 +25,7 @@ flowchart TD
     C --> D[4. Instalar VS Code]
     D --> E[5. Clonar el repositorio]
     E --> F[6. Comprobar las capacidades locales de Codex]
-    F --> G[7. Instalar Unity CLI]
+    F --> G[7. Instalar Unity Hub]
     G --> H[8. Iniciar sesión en Unity]
     H --> I[Entorno base preparado]
 ```
@@ -128,87 +128,56 @@ Debes ver estas tres capacidades con el valor literal `"scope": "project"`:
 
 Sus rutas deben estar dentro de `learning-unity\.agents\skills`. `scope`, `project` y `global` se mantienen en inglés porque son valores literales producidos por la herramienta. Si no aparecen, comprueba que ejecutaste el comando desde la raíz del repositorio y que la carpeta `.agents` existe.
 
-### Paso 7 — Instalar Unity CLI
+### Paso 7 — Instalar Unity Hub
 
-Unity CLI permite instalar y comprobar versiones del Editor, manejar licencias, abrir proyectos, ejecutar pruebas y generar versiones ejecutables desde la terminal.
+Unity Hub es la aplicación estable y habitual para administrar Unity. Desde ella instalaremos el Editor, añadiremos módulos, crearemos y abriremos proyectos y gestionaremos la cuenta.
 
-Primero comprueba si ya está instalada:
-
-```powershell
-unity --version
-```
-
-Si PowerShell indica que `unity` no existe, ejecuta el instalador oficial:
+Instálala desde PowerShell:
 
 ```powershell
-$env:UNITY_CLI_CHANNEL = 'beta'
-irm https://public-cdn.cloud.unity3d.com/hub/prod/cli/install.ps1 | iex
+winget install --id Unity.UnityHub --exact --source winget
 ```
 
-La variable `UNITY_CLI_CHANNEL` es necesaria mientras Unity CLI permanezca en beta. Al terminar, cierra PowerShell, abre una ventana nueva y comprueba:
+También puedes descargarla desde la [página oficial de Unity](https://unity.com/download).
+
+Comprueba que Windows reconoce la instalación:
 
 ```powershell
-unity --version
+winget list --id Unity.UnityHub --exact
 ```
 
-Si continúa sin reconocer el comando, no avances: reinicia la terminal y revisa el mensaje producido por el instalador.
+El resultado debe incluir `Unity Hub`. Ábrela desde el menú Inicio.
+
+> 💡 Unity CLI es una herramienta adicional para automatizar instalaciones, pruebas y versiones ejecutables desde la terminal. Actualmente está en beta y no es necesaria para comenzar, por lo que no la instalamos como requisito.
 
 ### Paso 8 — Iniciar sesión en Unity
 
-Necesitas una cuenta de Unity para administrar la licencia del Editor.
+Unity Hub solicita una cuenta de Unity. Si todavía no tienes una, puedes crearla desde la propia aplicación.
 
-Comprueba primero el estado:
+Dentro de Unity Hub:
 
-```powershell
-unity auth status --format json
-```
+1. Pulsa el icono de la cuenta.
+2. Selecciona **Sign in**.
+3. Completa el acceso en el navegador.
+4. Regresa a Unity Hub y comprueba que aparece tu cuenta.
 
-Si no has iniciado sesión:
+Para este aprendizaje utilizaremos Unity Personal, que es la modalidad gratuita siempre que se cumplan sus condiciones económicas. No es necesario comprar Unity Pro.
 
-```powershell
-unity auth login
-```
-
-El comando muestra una dirección y abre el navegador. Completa allí el acceso y vuelve a PowerShell. Comprueba de nuevo:
-
-```powershell
-unity auth status --format json
-```
-
-Las credenciales se guardan en el almacén seguro del sistema. Nunca deben escribirse en el repositorio.
-
-### Paso 9 — Comprobar o activar la licencia
-
-Comprueba si el ordenador ya tiene una licencia activa:
-
-```powershell
-unity license status --format json
-```
-
-Si vas a utilizar Unity Personal y todavía no hay licencia:
-
-```powershell
-unity license activate --personal --accept-eula
-```
-
-Utiliza Unity Personal únicamente si cumples sus condiciones. Si tu empresa dispone de otra licencia, activa la asignada a tu cuenta en lugar de elegir `--personal`.
-
-Comprueba una vez más:
-
-```powershell
-unity license status --format json
-```
+⚠️ No instales todavía una versión del Editor. Primero definiremos el juego para elegir de forma consciente la versión LTS, la plantilla y los módulos necesarios.
 
 ### Comprobación final
 
 ```mermaid
 flowchart TD
     A[Ejecutar comprobaciones] --> B{¿Todos los comandos responden?}
-    B -- Sí --> C[Preparación terminada]
-    B -- No --> D[Detenerse en el primer fallo]
-    D --> E[Leer el mensaje completo]
-    E --> F[Corregir y repetir esa comprobación]
-    F --> A
+    B -- Sí --> C[Abrir Unity Hub]
+    C --> D{¿La cuenta aparece conectada?}
+    D -- Sí --> E[Preparación terminada]
+    B -- No --> F[Detenerse en el primer fallo]
+    D -- No --> F
+    F --> G[Leer el mensaje completo]
+    G --> H[Corregir y repetir la comprobación]
+    H --> A
 ```
 
 Ejecuta:
@@ -219,9 +188,7 @@ node --version
 npx --version
 code --version
 npx skills list --json
-unity --version
-unity auth status --format json
-unity license status --format json
+winget list --id Unity.UnityHub --exact
 ```
 
 Con estas comprobaciones quedan preparadas las herramientas comunes. La idea del juego determinará después la versión LTS del Editor, los módulos de plataforma, la plantilla y los paquetes de Unity estrictamente necesarios.
