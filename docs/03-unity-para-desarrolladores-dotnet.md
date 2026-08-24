@@ -10,7 +10,7 @@ Unity utiliza C#, pero su modelo mental no es el de ASP.NET ni el de una aplicac
 | Contenedor de dependencias | Escenas, GameObjects y composición de componentes |
 | Configuración en JSON/options | Inspector y ScriptableObjects, según el caso |
 | Request/response | Ciclo continuo de entrada, simulación y renderizado |
-| Tests unitarios habituales | Tests EditMode y PlayMode |
+| Pruebas unitarias habituales | Pruebas en EditMode y PlayMode |
 
 La comparación sirve para orientarse, no para copiar arquitecturas literalmente.
 

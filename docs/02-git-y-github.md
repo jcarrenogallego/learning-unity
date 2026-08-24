@@ -65,4 +65,4 @@ flowchart LR
     D --> E[Commit]
 ```
 
-Nunca deben aparecer credenciales, licencias privadas, `Library/`, `Temp/`, `Logs/`, `obj/` ni builds generados.
+Nunca deben aparecer credenciales, licencias privadas, `Library/`, `Temp/`, `Logs/`, `obj/` ni versiones ejecutables generadas.

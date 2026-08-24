@@ -2,7 +2,7 @@
 
 Repositorio didáctico para aprender Unity creando un videojuego y entendiendo qué ocurre en cada paso. Está escrito desde la perspectiva de un desarrollador con experiencia en .NET, pero utiliza lenguaje sencillo y no presupone experiencia previa con motores de videojuegos.
 
-El propósito no es terminar un prototipo deprisa. Queremos aprender a trabajar con Unity de forma profesional: programación en C#, diseño de sistemas, arquitectura pragmática, testing, depuración, rendimiento, arte y construcción de versiones ejecutables.
+El propósito no es terminar un prototipo deprisa. Queremos aprender a trabajar con Unity de forma profesional: programación en C#, diseño de sistemas, arquitectura pragmática, pruebas, depuración, rendimiento, arte y generación de versiones ejecutables.
 
 Aquí no damos nada por sabido sobre Unity. Cada paso explica:
 
@@ -12,9 +12,7 @@ Aquí no damos nada por sabido sobre Unity. Cada paso explica:
 4. qué errores son habituales;
 5. qué concepto equivalente existe —o no existe— en .NET.
 
-> Estado actual: preparación del entorno. Todavía no se ha elegido ni creado el juego.
-
-## Get Started técnico — preparar Windows
+## Primeros pasos técnicos — preparar Windows
 
 Esta primera preparación instala las herramientas comunes a cualquier juego. Todavía **no instalaremos una versión concreta del Editor de Unity ni crearemos el proyecto**: esas decisiones dependen de la idea del juego, la plataforma y si será 2D o 3D.
 
@@ -26,7 +24,7 @@ flowchart TD
     B --> C[3. Instalar Node.js LTS]
     C --> D[4. Instalar VS Code]
     D --> E[5. Clonar el repositorio]
-    E --> F[6. Restaurar las skills locales]
+    E --> F[6. Restaurar las capacidades locales de Codex]
     F --> G[7. Instalar Unity CLI]
     G --> H[8. Iniciar sesión en Unity]
     H --> I[9. Activar la licencia]
@@ -67,7 +65,7 @@ El resultado esperado se parece a `git version 2.x.x`.
 
 ### Paso 3 — Instalar Node.js LTS
 
-No utilizaremos Node.js para programar el juego. Lo necesitamos para ejecutar `npx skills`, la herramienta que restaura las skills de Codex incluidas en este repositorio.
+No utilizaremos Node.js para programar el juego. Lo necesitamos para ejecutar `npx skills`, la herramienta que restaura las capacidades de Codex incluidas en este repositorio.
 
 ```powershell
 winget install --id OpenJS.NodeJS.LTS --exact --source winget
@@ -113,9 +111,9 @@ code .
 
 > Si ya estás trabajando dentro de este repositorio, no vuelvas a clonarlo. Continúa con el paso siguiente.
 
-### Paso 6 — Restaurar las skills locales
+### Paso 6 — Restaurar las capacidades locales de Codex
 
-Las skills pertenecen al repositorio y se encuentran bajo `.agents/skills`. No deben instalarse globalmente en el ordenador.
+Las capacidades especializadas —denominadas `skills` por Codex— pertenecen al repositorio y se encuentran bajo `.agents/skills`. No deben instalarse globalmente en el ordenador.
 
 Desde la raíz de `learning-unity`, ejecuta:
 
@@ -129,17 +127,17 @@ Comprueba el resultado:
 npx skills list --json
 ```
 
-Debes ver estas tres skills con `"scope": "project"`:
+Debes ver estas tres capacidades con el valor literal `"scope": "project"`:
 
 - `new-unity-project`;
 - `unity-cli`;
 - `unity-package-management`.
 
-Sus rutas deben estar dentro de `learning-unity\.agents\skills`. Si aparece `"scope": "global"`, detente: la instalación no se hizo desde la raíz del repositorio.
+Sus rutas deben estar dentro de `learning-unity\.agents\skills`. `scope`, `project` y `global` se mantienen en inglés porque son valores literales producidos por la herramienta. Si aparece `"scope": "global"`, detente: la instalación no se hizo desde la raíz del repositorio.
 
 ### Paso 7 — Instalar Unity CLI
 
-Unity CLI permite instalar y comprobar versiones del Editor, manejar licencias, abrir proyectos, ejecutar tests y generar builds desde la terminal.
+Unity CLI permite instalar y comprobar versiones del Editor, manejar licencias, abrir proyectos, ejecutar pruebas y generar versiones ejecutables desde la terminal.
 
 Primero comprueba si ya está instalada:
 
@@ -233,7 +231,7 @@ unity auth status --format json
 unity license status --format json
 ```
 
-En este punto tenemos las herramientas base. La siguiente etapa será definir el juego; después elegiremos la versión LTS del Editor, los módulos de plataforma, la plantilla y los paquetes de Unity estrictamente necesarios.
+Con estas comprobaciones quedan preparadas las herramientas comunes. La idea del juego determinará después la versión LTS del Editor, los módulos de plataforma, la plantilla y los paquetes de Unity estrictamente necesarios.
 
 ## Cómo leer este repositorio
 
@@ -251,7 +249,7 @@ flowchart LR
 Empieza aquí:
 
 - [Ruta de aprendizaje](docs/00-ruta-de-aprendizaje.md)
-- [Skills instaladas y criterio de selección](docs/01-skills.md)
+- [Capacidades de Codex instaladas y criterio de selección](docs/01-skills.md)
 - [Cómo colaboramos con Git y GitHub](docs/02-git-y-github.md)
 - [Mapa mental de Unity para desarrolladores .NET](docs/03-unity-para-desarrolladores-dotnet.md)
 
@@ -262,7 +260,3 @@ Empieza aquí:
 - No instalamos paquetes “por si acaso”.
 - El código debe ser fácil de leer, probar y cambiar.
 - Los diagramas Mermaid acompañan los flujos que resultan más fáciles de entender visualmente.
-
-## Próximo paso
-
-Definir contigo la idea del juego. Esa decisión determinará si el proyecto será 2D o 3D, el render pipeline, la plantilla de Unity y los paquetes necesarios.

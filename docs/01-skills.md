@@ -1,8 +1,8 @@
-# Skills de Unity
+# Capacidades de Unity para Codex
 
-Una skill es una guía especializada que ayuda al asistente a seguir un proceso fiable. No es un paquete que se añade al juego y no modifica Unity por sí sola.
+Una capacidad especializada —denominada `skill` por Codex— es una guía que ayuda al asistente a seguir un proceso fiable. No es un paquete que se añade al juego y no modifica Unity por sí sola.
 
-En este proyecto las skills están instaladas **dentro del repositorio**, no globalmente en el ordenador:
+En este proyecto estas capacidades están instaladas **dentro del repositorio**, no globalmente en el ordenador:
 
 ```text
 learning-unity/
@@ -19,25 +19,25 @@ learning-unity/
 └── skills-lock.json
 ```
 
-Codex descubre las skills locales desde `.agents/skills`. Cada skill tiene una carpeta propia y un archivo llamado exactamente `SKILL.md`. El archivo `skills-lock.json` registra su origen para que la instalación pueda reproducirse en otra copia del repositorio.
+Codex descubre las capacidades locales desde `.agents/skills`. Cada una tiene una carpeta propia y un archivo llamado exactamente `SKILL.md`. El archivo `skills-lock.json` registra su origen para que la instalación pueda reproducirse en otra copia del repositorio.
 
 ```mermaid
 flowchart LR
-    A[Petición] --> B[Skill]
+    A[Petición] --> B[Capacidad especializada]
     B --> C[Proceso recomendado]
     C --> D[Herramientas de Unity]
     D --> E[Resultado comprobado]
 ```
 
-## Skills instaladas
+## Capacidades instaladas
 
-| Skill | Procedencia | Para qué sirve | Cuándo se usa |
+| Capacidad | Procedencia | Para qué sirve | Cuándo se usa |
 |---|---|---|---|
-| `unity-cli` | Unity Technologies | Instalar y manejar Unity, abrir proyectos, ejecutar tests y builds | Operaciones con el editor |
+| `unity-cli` | Unity Technologies | Instalar y manejar Unity, abrir proyectos, ejecutar pruebas y generar versiones ejecutables | Operaciones con el Editor |
 | `unity-package-management` | Unity Technologies | Buscar e instalar paquetes compatibles mediante Unity Package Manager | Cuando el juego necesite paquetes |
 | `new-unity-project` | Unity Technologies | Guiar la creación de un proyecto sin inventar plantilla ni dependencias | Después de definir el juego |
 
-Se eligieron skills del repositorio oficial `Unity-Technologies/skills`. No se instalaron skills comunitarias de gameplay o arquitectura porque todavía no conocemos el juego y varias candidatas tenían poca adopción o solapaban capacidades ya disponibles.
+Se eligieron capacidades del repositorio oficial `Unity-Technologies/skills`. No se instalaron alternativas comunitarias de programación del juego o arquitectura porque aún no conocemos sus necesidades y varias candidatas tenían poca adopción o repetían capacidades ya disponibles.
 
 ## Cómo se instalaron
 
@@ -50,7 +50,7 @@ npx skills add Unity-Technologies/skills `
   --yes
 ```
 
-No se utiliza `--global` ni `-g`. Esas opciones instalarían las skills para el usuario completo y harían que estuvieran disponibles también fuera de este proyecto.
+No se utiliza `--global` ni `-g`. Esas opciones instalarían las capacidades para el usuario completo y harían que estuvieran disponibles también fuera de este proyecto.
 
 Para comprobar el resultado:
 
@@ -58,7 +58,7 @@ Para comprobar el resultado:
 npx skills list --json
 ```
 
-Cada resultado debe indicar `"scope": "project"` y una ruta dentro de `learning-unity\.agents\skills`.
+Cada resultado debe indicar los valores literales `"scope": "project"` y una ruta dentro de `learning-unity\.agents\skills`.
 
 Para restaurarlas desde el archivo de bloqueo después de clonar el repositorio:
 
@@ -68,20 +68,20 @@ npx skills experimental_install
 
 ## Regla de selección
 
-Antes de añadir otra skill comprobaremos:
+Antes de añadir otra capacidad comprobaremos:
 
 1. que resuelve una necesidad real;
 2. quién la mantiene;
 3. cuándo fue actualizada;
 4. si es compatible con nuestra versión de Unity;
-5. si duplica otra skill;
+5. si duplica otra capacidad;
 6. si su código e instrucciones son seguros.
 
 ## Importante
 
-Instalar una skill no equivale a instalar un paquete de Unity:
+Instalar una capacidad de Codex no equivale a instalar un paquete de Unity:
 
-- **Skill:** conocimiento y procedimiento para el asistente.
+- **Capacidad de Codex (`skill`):** conocimiento y procedimiento para el asistente.
 - **Paquete de Unity:** código que forma parte del proyecto y aparece en `Packages/manifest.json`.
 - **Herramienta externa:** programa instalado en el ordenador, como Unity Hub, Git o un editor de código.
 

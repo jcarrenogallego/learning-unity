@@ -6,7 +6,7 @@ Esta ruta funciona como una guía de electrodoméstico: una acción pequeña cad
 
 ```mermaid
 flowchart TD
-    A[1. Preparar repositorio y skills] --> B[2. Definir la idea del juego]
+    A[1. Preparar repositorio y capacidades de Codex] --> B[2. Definir la idea del juego]
     B --> C[3. Elegir versión y plantilla de Unity]
     C --> D[4. Instalar Unity y crear el proyecto]
     D --> E[5. Aprender los fundamentos]
@@ -26,7 +26,7 @@ Terminada cuando:
 - el repositorio existe en GitHub;
 - `main` está protegida;
 - las guías se leen correctamente;
-- las skills oficiales básicas de Unity están instaladas.
+- las capacidades oficiales básicas de Unity para Codex están instaladas.
 
 ## Etapa 2 — Idea del juego
 
@@ -43,7 +43,7 @@ El resultado será una ficha breve del juego, no un documento enorme.
 
 ## Etapa 3 — Decisiones técnicas
 
-Elegiremos la versión estable de Unity, la plantilla y los paquetes después de conocer el juego. Comprobaremos la compatibilidad real de C#: Unity decide qué sintaxis y runtime admite, aunque el equipo tenga instalado un SDK de .NET más moderno.
+Elegiremos la versión estable de Unity, la plantilla y los paquetes después de conocer el juego. Comprobaremos la compatibilidad real de C#: Unity decide qué sintaxis y entorno de ejecución admite, aunque el equipo tenga instalado un SDK de .NET más moderno.
 
 ## Etapas posteriores
 
