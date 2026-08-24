@@ -2,6 +2,25 @@
 
 Una skill es una guía especializada que ayuda al asistente a seguir un proceso fiable. No es un paquete que se añade al juego y no modifica Unity por sí sola.
 
+En este proyecto las skills están instaladas **dentro del repositorio**, no globalmente en el ordenador:
+
+```text
+learning-unity/
+├── .agents/
+│   └── skills/
+│       ├── new-unity-project/
+│       │   └── SKILL.md
+│       ├── unity-cli/
+│       │   ├── SKILL.md
+│       │   └── references/
+│       └── unity-package-management/
+│           ├── SKILL.md
+│           └── references/
+└── skills-lock.json
+```
+
+Codex descubre las skills locales desde `.agents/skills`. Cada skill tiene una carpeta propia y un archivo llamado exactamente `SKILL.md`. El archivo `skills-lock.json` registra su origen para que la instalación pueda reproducirse en otra copia del repositorio.
+
 ```mermaid
 flowchart LR
     A[Petición] --> B[Skill]
@@ -19,6 +38,33 @@ flowchart LR
 | `new-unity-project` | Unity Technologies | Guiar la creación de un proyecto sin inventar plantilla ni dependencias | Después de definir el juego |
 
 Se eligieron skills del repositorio oficial `Unity-Technologies/skills`. No se instalaron skills comunitarias de gameplay o arquitectura porque todavía no conocemos el juego y varias candidatas tenían poca adopción o solapaban capacidades ya disponibles.
+
+## Cómo se instalaron
+
+Desde la raíz del repositorio:
+
+```powershell
+npx skills add Unity-Technologies/skills `
+  --skill unity-cli unity-package-management new-unity-project `
+  --agent codex `
+  --yes
+```
+
+No se utiliza `--global` ni `-g`. Esas opciones instalarían las skills para el usuario completo y harían que estuvieran disponibles también fuera de este proyecto.
+
+Para comprobar el resultado:
+
+```powershell
+npx skills list --json
+```
+
+Cada resultado debe indicar `"scope": "project"` y una ruta dentro de `learning-unity\.agents\skills`.
+
+Para restaurarlas desde el archivo de bloqueo después de clonar el repositorio:
+
+```powershell
+npx skills experimental_install
+```
 
 ## Regla de selección
 
