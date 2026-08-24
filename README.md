@@ -12,6 +12,26 @@ Aquí no damos nada por sabido sobre Unity. Cada paso explica:
 4. qué errores son habituales;
 5. qué concepto equivalente existe —o no existe— en .NET.
 
+## 🧭 Herramientas y responsabilidades
+
+Unity Hub, Unity Editor y Visual Studio Code son aplicaciones diferentes. Se complementan; ninguna sustituye completamente a las otras.
+
+| Herramienta | Para qué la utilizaremos | Lo que no hace |
+|---|---|---|
+| **Unity Hub** | Instalar y administrar versiones de Unity Editor, módulos, proyectos y cuenta | No permite diseñar ni ejecutar el juego |
+| **Unity Editor** | Crear escenas, colocar GameObjects, configurar componentes, importar assets y ejecutar el juego en Play Mode | No es nuestro editor principal para escribir C# |
+| **Visual Studio Code** | Escribir, navegar y depurar el código C# | No reemplaza las herramientas visuales de Unity Editor |
+
+```mermaid
+flowchart LR
+    A[Unity Hub] -->|Instala y abre| B[Unity Editor]
+    B -->|Abre los archivos C#| C[Visual Studio Code]
+    C -->|Guarda el código| B
+    B -->|Compila y ejecuta| D[Videojuego]
+```
+
+💡 Durante el trabajo diario tendremos Unity Editor y Visual Studio Code abiertos al mismo tiempo: construiremos el mundo del juego en Unity y escribiremos el código en VS Code.
+
 ## Primeros pasos técnicos — preparar Windows
 
 Esta primera preparación instala las herramientas comunes a cualquier juego. Todavía **no instalaremos una versión concreta del Editor de Unity ni crearemos el proyecto**: esas decisiones dependen de la idea del juego, la plataforma y si será 2D o 3D.
@@ -22,7 +42,7 @@ Esta primera preparación instala las herramientas comunes a cualquier juego. To
 flowchart TD
     A[1. Abrir PowerShell] --> B[2. Instalar Git]
     B --> C[3. Instalar Node.js LTS]
-    C --> D[4. Instalar VS Code]
+    C --> D[4. Instalar VS Code y la extensión de Unity]
     D --> E[5. Clonar el repositorio]
     E --> F[6. Comprobar las capacidades locales de Codex]
     F --> G[7. Instalar Unity Hub]
@@ -80,9 +100,9 @@ npx --version
 
 Los tres deben mostrar una versión sin producir errores. Elegimos la edición **LTS** porque prioriza estabilidad y mantenimiento prolongado.
 
-### Paso 4 — Instalar Visual Studio Code
+### Paso 4 — Instalar Visual Studio Code y la extensión de Unity
 
-VS Code será inicialmente nuestro editor para Markdown, Git y C#. Más adelante configuraremos su integración con la versión de Unity que elijamos.
+VS Code será nuestro editor para Markdown, Git y C#. La extensión oficial de Unity añade navegación, análisis y depuración de los scripts del juego.
 
 ```powershell
 winget install --id Microsoft.VisualStudioCode --exact --source winget
@@ -94,7 +114,21 @@ Comprueba que funciona:
 code --version
 ```
 
-No instalaremos todavía extensiones de Unity: primero elegiremos el Editor y comprobaremos qué integración recomienda esa versión.
+Instala la extensión oficial **Unity** publicada por Microsoft:
+
+```powershell
+code --install-extension visualstudiotoolsforunity.vstuc
+```
+
+Esta extensión instala también sus dependencias para trabajar con C#, incluido C# Dev Kit. Comprueba que aparece en la lista:
+
+```powershell
+code --list-extensions | Select-String 'visualstudiotoolsforunity.vstuc'
+```
+
+✅ El resultado correcto muestra `visualstudiotoolsforunity.vstuc`.
+
+Cuando exista el proyecto, configuraremos VS Code como editor externo desde **Unity > Preferences > External Tools > External Script Editor**. También comprobaremos que el proyecto utiliza el paquete `Visual Studio Editor` compatible; no utilizaremos el antiguo paquete `Visual Studio Code Editor`, porque ya no recibe mantenimiento.
 
 ### Paso 5 — Clonar y abrir el repositorio
 
@@ -187,6 +221,7 @@ git --version
 node --version
 npx --version
 code --version
+code --list-extensions | Select-String 'visualstudiotoolsforunity.vstuc'
 npx skills list --json
 winget list --id Unity.UnityHub --exact
 ```
