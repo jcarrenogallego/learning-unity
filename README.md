@@ -95,13 +95,41 @@ winget install --id Unity.UnityHub --exact --source winget
 winget list --id Unity.UnityHub --exact
 ```
 
+## 📚 Sesiones
+
+1. [Conocer Unity y crear la primera escena](docs/sesiones/01-primera-escena.md)
+
 Después:
 
 1. Abre Unity Hub.
 2. Inicia sesión o crea una cuenta.
 3. Utiliza Unity Personal; no necesitas comprar Unity Pro para este aprendizaje.
 
-⚠️ Elegiremos la versión de Unity Editor, la plantilla y los módulos cuando definamos la idea del juego.
+### 8. Instalar Unity Editor
+
+Desde Unity Hub:
+
+1. Entra en **Installs**.
+2. Pulsa **Install Editor**.
+3. Elige la versión estable más reciente de Unity 6.
+4. Añade **Windows Build Support (IL2CPP)**.
+5. Pulsa **Install** y espera a que termine.
+
+### 9. Crear el proyecto Kogi
+
+Desde Unity Hub:
+
+1. Entra en **Projects** y pulsa **New project**.
+2. Selecciona la plantilla **Universal 2D**.
+3. Escribe `Kogi` como nombre.
+4. Elige la carpeta de este repositorio como ubicación.
+5. Marca **Use Unity CLI**.
+6. Deja desmarcado **Use AI Assistant**.
+7. En proveedor, elige **Do not select any**: ya utilizamos Git y GitHub.
+8. Pulsa **Create project**.
+9. Espera a que Unity importe y compile todo sin errores rojos en **Console**.
+
+El proyecto quedará dentro de la carpeta `Kogi`.
 
 ## ✅ Comprobación final
 
