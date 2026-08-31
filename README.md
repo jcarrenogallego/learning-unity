@@ -98,6 +98,7 @@ winget list --id Unity.UnityHub --exact
 ## 📚 Sesiones
 
 1. [Conocer Unity y crear la primera escena](docs/sesiones/01-primera-escena.md)
+2. [Mover a Kogi horizontalmente con C#](docs/sesiones/02-movimiento-horizontal.md)
 
 Después:
 

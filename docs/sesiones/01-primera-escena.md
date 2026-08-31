@@ -133,4 +133,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Volver al inicio](../../README.md)
+[🏠 Inicio](../../README.md) · [Siguiente: movimiento horizontal ➡️](02-movimiento-horizontal.md)
