@@ -184,4 +184,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](01-primera-escena.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](01-primera-escena.md) · [🏠 Inicio](../../README.md) · [Siguiente: gravedad y salto ➡️](03-gravedad-colisiones-salto.md)
