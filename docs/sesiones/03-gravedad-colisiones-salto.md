@@ -6,24 +6,9 @@ Duración aproximada: **75–90 minutos**.
 
 Al terminar, Kogi caerá por gravedad, se apoyará sobre el suelo sin atravesarlo y saltará con `Espacio`. Solo podrá saltar cuando esté tocando el suelo.
 
-## 1. Entender las responsabilidades
+En esta sesión iremos en este orden: **hacer → observar → entender → comprobar**. Cada concepto se explica justo después de utilizarlo.
 
-```mermaid
-flowchart LR
-    A[Player Input: Jump] --> B[KogiMovement decide saltar]
-    B --> C[Rigidbody2D aplica velocidad]
-    C --> D[Collider2D detecta el suelo]
-    D --> E[Kogi cae y aterriza]
-```
-
-- `Rigidbody2D` aplica velocidad, gravedad y movimiento físico.
-- `Collider2D` define la zona sólida que participa en colisiones.
-- `Layer` identifica el tipo de objeto; usaremos una llamada `Ground`.
-- `GroundCheck` marca el punto donde comprobaremos si Kogi está sobre el suelo.
-
-> 💡 **Qué acabas de aprender:** el `Rigidbody2D` mueve; el `Collider2D` permite detectar y resolver contactos.
-
-## 2. Abrir la escena correcta
+## 1. Abrir la escena correcta
 
 1. Abre `Kogi` desde **Unity Hub > Projects**.
 2. En la ventana **Project**, abre `Assets > Kogi > Scenes`.
@@ -31,7 +16,9 @@ flowchart LR
 4. Comprueba en **Hierarchy** que aparecen `Kogi` y `Suelo`.
 5. Asegúrate de que el botón ▶️ de la barra superior esté detenido.
 
-## 3. Hacer sólido el suelo
+> 💡 **Qué acabas de aprender:** una escena guardada puede abrirse desde la ventana **Project**. La ventana **Hierarchy** muestra los `GameObjects` que contiene la escena abierta.
+
+## 2. Hacer sólido el suelo
 
 1. Selecciona `Suelo` en **Hierarchy**.
 2. En **Inspector**, pulsa **Add Component**.
@@ -39,25 +26,22 @@ flowchart LR
 4. Selecciona **Box Collider 2D**.
 5. Comprueba que su casilla **Is Trigger** esté desmarcada.
 
-El rectángulo verde visible al seleccionar `Suelo` representa su zona de colisión.
+Al seleccionar `Suelo`, Unity muestra el contorno de su nueva zona de colisión.
 
 > 💡 **Qué acabas de aprender:** el suelo podía verse, pero no era sólido hasta añadirle un `Collider2D`.
 
-## 4. Crear la capa Ground
+### ¿Qué acabamos de añadir?
 
-1. Mantén seleccionado `Suelo` en **Hierarchy**.
-2. En la parte superior de **Inspector**, pulsa el desplegable **Layer**, que inicialmente muestra `Default`.
-3. Selecciona **Add Layer...**.
-4. En la sección **Layers**, busca la primera fila vacía de **User Layer**.
-5. Escribe `Ground` en esa fila.
-6. Vuelve a seleccionar `Suelo` en **Hierarchy**.
-7. Abre de nuevo **Layer** y selecciona `Ground`.
+`Sprite Renderer` dibuja el suelo, pero no lo vuelve sólido. `BoxCollider2D` crea su superficie física.
 
-Si Unity pregunta si debe aplicar la capa a los objetos hijos, pulsa **Yes, change children**.
+```text
+Sprite Renderer → podemos ver el suelo
+BoxCollider2D   → Kogi puede chocar con el suelo
+```
 
-> 💡 **Qué acabas de aprender:** una `Layer` permite localizar grupos de objetos sin depender de sus nombres.
+Todavía no hemos configurado cómo chocará Kogi. Por ahora, solo hemos preparado la superficie física del suelo.
 
-## 5. Preparar la física de Kogi
+## 3. Dar gravedad y cuerpo físico a Kogi
 
 1. Selecciona `Kogi` en **Hierarchy**.
 2. En **Inspector**, expande **Rigidbody 2D**.
@@ -75,9 +59,64 @@ Si Unity pregunta si debe aplicar la capa a los objetos hijos, pulsa **Yes, chan
 6. Busca `Capsule Collider 2D` y selecciónalo.
 7. Comprueba que **Is Trigger** esté desmarcado.
 
-> 💡 **Qué acabas de aprender:** Kogi necesita un cuerpo físico para caer y un volumen sólido para chocar con el suelo.
+### ¿Qué hace cada componente?
 
-## 6. Crear el punto GroundCheck
+- `Rigidbody2D` hace que Kogi participe en la física 2D. Unity puede aplicarle gravedad y velocidad.
+- `CapsuleCollider2D` define la forma física de Kogi. Elegimos una cápsula porque sus bordes redondeados se comportan bien al desplazarse por el suelo.
+- `Freeze Rotation Z` evita que Kogi se tumbe al chocar.
+- `Is Trigger` queda desmarcado porque queremos una colisión sólida.
+
+Ahora ya existen dos formas físicas capaces de chocar:
+
+```mermaid
+flowchart LR
+    A[Gravedad] --> B[Rigidbody2D hace caer a Kogi]
+    B --> C[CapsuleCollider2D de Kogi]
+    C --> D[BoxCollider2D de Suelo]
+    D --> E[Unity impide que se atraviesen]
+```
+
+No necesitamos escribir código para detener la caída. El motor de física resuelve la colisión porque Kogi tiene `Rigidbody2D`, y ambos objetos tienen un `Collider2D` sólido.
+
+> 💡 **Qué acabas de aprender:** `Rigidbody2D` controla la participación de Kogi en la física; los `Collider2D` indican qué formas no deben atravesarse.
+
+### Comprobar la caída antes de continuar
+
+1. Guarda la escena con `Ctrl + S`.
+2. Pulsa ▶️.
+3. Comprueba que Kogi cae y se detiene sobre `Suelo`.
+4. Detén la ejecución pulsando ▶️ otra vez.
+
+Si Kogi atraviesa el suelo, corrige este problema antes de seguir.
+
+## 4. Indicar qué objetos cuentan como suelo
+
+La colisión ya impide que Kogi atraviese `Suelo`. Ahora necesitamos que el código pueda responder otra pregunta diferente: **¿Kogi está apoyado sobre algo que consideramos suelo?**
+
+1. Selecciona `Suelo` en **Hierarchy**.
+2. En la parte superior de **Inspector**, pulsa el desplegable **Layer**, que inicialmente muestra `Default`.
+3. Selecciona **Add Layer...**.
+4. En la sección **Layers**, busca la primera fila vacía de **User Layer**.
+5. Escribe `Ground` en esa fila.
+6. Vuelve a seleccionar `Suelo` en **Hierarchy**.
+7. Abre de nuevo **Layer** y selecciona `Ground`.
+
+Si Unity pregunta si debe aplicar la capa a los objetos hijos, pulsa **Yes, change children**.
+
+### ¿Qué es una Layer?
+
+Una `Layer` es una categoría técnica asignada a un `GameObject`. No crea comportamientos ni vuelve sólido al objeto: solamente permite clasificarlo.
+
+```text
+BoxCollider2D → hace sólido el suelo
+Layer Ground  → permite identificarlo como suelo
+```
+
+`Ground` es un nombre elegido por nosotros, no una palabra reservada de Unity. Más adelante, el script buscará objetos que tengan un `Collider2D` y pertenezcan a esta `Layer`.
+
+> 💡 **Qué acabas de aprender:** colisionar con un objeto y reconocerlo como suelo son dos responsabilidades distintas.
+
+## 5. Crear un punto bajo los pies de Kogi
 
 1. En **Hierarchy**, haz clic derecho sobre el objeto `Kogi`.
 2. Selecciona **Create Empty**.
@@ -98,7 +137,32 @@ Kogi
 
 > 💡 **Qué acabas de aprender:** un objeto hijo conserva una posición relativa respecto a su padre.
 
-## 7. Añadir el salto al script
+### ¿Qué es GroundCheck y por qué solo tiene Transform?
+
+`GroundCheck` es un `GameObject` vacío que utilizamos como marcador invisible. Lo colocamos bajo los pies para que acompañe a Kogi y nos indique desde dónde comprobaremos el suelo.
+
+Todo `GameObject` tiene un `Transform`. En este caso es el único componente necesario porque solo nos interesa su posición.
+
+```text
+Kogi
+└── GroundCheck → indica dónde están los pies
+```
+
+No le añadas un `Collider2D`: `GroundCheck` no debe chocar con nada. En el siguiente paso, el código utilizará su posición para buscar suelo en una zona muy pequeña.
+
+```text
+       Kogi
+    ┌────────┐
+    │        │
+    └────────┘
+         ●       GroundCheck
+       (   )     círculo de búsqueda
+══════════════   BoxCollider2D del suelo
+```
+
+> 💡 **Qué acabas de aprender:** un `GameObject` vacío también es útil. Puede actuar como un punto de referencia que sigue a su objeto padre.
+
+## 6. Enseñar al script cuándo y cómo saltar
 
 1. En **Project**, abre `Assets > Kogi > Scripts > Player`.
 2. Haz doble clic en `KogiMovement` para abrirlo en Rider.
@@ -108,66 +172,69 @@ Kogi
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public sealed class KogiMovement : MonoBehaviour
+namespace Kogi.Scripts.Player
 {
-    [SerializeField, Min(0f)]
-    private float speed = 5f;
-
-    [SerializeField, Min(0f)]
-    private float jumpForce = 8f;
-
-    [SerializeField]
-    private Transform groundCheck;
-
-    [SerializeField]
-    private LayerMask groundLayer;
-
-    [SerializeField, Min(0f)]
-    private float groundCheckRadius = 0.15f;
-
-    private Rigidbody2D body;
-    private Vector2 movementInput;
-    private bool jumpRequested;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public sealed class KogiMovement : MonoBehaviour
     {
-        body = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField, Min(0f)]
+        private float speed = 5f;
 
-    private void OnMove(InputValue value)
-    {
-        movementInput = value.Get<Vector2>();
-    }
+        [SerializeField, Min(0f)]
+        private float jumpForce = 8f;
 
-    private void OnJump(InputValue value)
-    {
-        if (value.isPressed)
+        [SerializeField]
+        private Transform groundCheck;
+
+        [SerializeField]
+        private LayerMask groundLayer;
+
+        [SerializeField, Min(0f)]
+        private float groundCheckRadius = 0.15f;
+
+        private Rigidbody2D body;
+        private Vector2 movementInput;
+        private bool jumpRequested;
+
+        private void Awake()
         {
-            jumpRequested = true;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        Vector2 velocity = body.linearVelocity;
-        velocity.x = movementInput.x * speed;
-
-        if (jumpRequested && IsGrounded())
-        {
-            velocity.y = jumpForce;
+            body = GetComponent<Rigidbody2D>();
         }
 
-        body.linearVelocity = velocity;
-        jumpRequested = false;
-    }
+        private void OnMove(InputValue value)
+        {
+            movementInput = value.Get<Vector2>();
+        }
 
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(
-            groundCheck.position,
-            groundCheckRadius,
-            groundLayer) is not null;
+        private void OnJump(InputValue value)
+        {
+            if (value.isPressed)
+            {
+                jumpRequested = true;
+            }
+        }
+
+        private void FixedUpdate()
+        {
+            Vector2 velocity = body.linearVelocity;
+            velocity.x = movementInput.x * speed;
+
+            if (jumpRequested && IsGrounded())
+            {
+                velocity.y = jumpForce;
+            }
+
+            body.linearVelocity = velocity;
+            jumpRequested = false;
+        }
+
+        private bool IsGrounded()
+        {
+            return Physics2D.OverlapCircle(
+                groundCheck.position,
+                groundCheckRadius,
+                groundLayer) is not null;
+        }
     }
 }
 ```
@@ -176,15 +243,85 @@ public sealed class KogiMovement : MonoBehaviour
 5. Regresa a Unity Editor y espera a que termine de compilar.
 6. Abre **Window > General > Console** y comprueba que no haya errores rojos.
 
-### Qué hemos añadido
+### ¿Qué hemos añadido?
 
 - `jumpForce`: velocidad vertical inicial del salto.
 - `groundCheck`: referencia al punto situado bajo los pies.
-- `groundLayer`: capas que se consideran suelo.
+- `groundLayer`: categorías que el código aceptará como suelo.
 - `OnJump`: recibe la acción `Jump` de `Player Input`.
 - `IsGrounded`: comprueba si existe un `Collider2D` del suelo bajo Kogi.
 
-## 8. Conectar las referencias del script
+### ¿Qué representa cada variable?
+
+| Variable | Tipo | Para qué sirve | Cómo obtiene su valor |
+|---|---|---|---|
+| `speed` | `float` | Velocidad horizontal | Valor editable en Inspector |
+| `jumpForce` | `float` | Velocidad vertical inicial del salto | Valor editable en Inspector |
+| `groundCheck` | `Transform` | Posición donde buscar el suelo | Arrastramos `GroundCheck` desde Hierarchy |
+| `groundLayer` | `LayerMask` | Indica qué `Layers` se aceptan como suelo | Marcaremos `Ground` en Inspector |
+| `groundCheckRadius` | `float` | Tamaño del círculo de búsqueda | Valor editable en Inspector |
+| `body` | `Rigidbody2D` | Cuerpo físico de Kogi | `GetComponent` lo obtiene en `Awake` |
+| `movementInput` | `Vector2` | Dirección solicitada por el jugador | La acción `Move` la actualiza |
+| `jumpRequested` | `bool` | Recuerda una solicitud de salto pendiente | `OnJump` la activa y `FixedUpdate` la consume |
+
+Las variables con `[SerializeField]` aparecen en **Inspector** para que podamos configurarlas desde Unity. Las variables internas se completan durante la ejecución y no necesitan configuración manual.
+
+`LayerMask` no es otra `Layer`. Es un filtro que puede contener una o varias `Layers`. En esta práctica solo seleccionaremos `Ground`.
+
+### ¿Por qué el método se llama OnJump?
+
+`OnJump` no está heredado. Como `Player Input` utiliza **Send Messages**, transforma el nombre de cada acción en un mensaje:
+
+```text
+Move   → OnMove
+Jump   → OnJump
+Attack → OnAttack
+```
+
+Por eso no podemos cambiarlo libremente mientras utilicemos **Send Messages**.
+
+### IsGrounded es un método, no una variable
+
+Los paréntesis permiten reconocer la llamada:
+
+```text
+jumpRequested → variable bool
+IsGrounded()  → método que calcula y devuelve un bool
+```
+
+La expresión `is not null` devuelve `true` cuando la consulta encuentra un `Collider2D` válido y `false` cuando no encuentra ninguno.
+
+Dentro de `IsGrounded`, `Physics2D.OverlapCircle` realiza una búsqueda circular invisible:
+
+- El centro es `groundCheck.position`.
+- El tamaño es `groundCheckRadius`.
+- El filtro es `groundLayer`.
+
+No comprueba que dos posiciones sean exactamente iguales. Comprueba si el círculo se superpone con un `Collider2D` perteneciente a una `Layer` aceptada.
+
+### Flujo completo de una pulsación de salto
+
+```mermaid
+flowchart TD
+    A[Jugador pulsa Espacio] --> B[Player Input activa Jump]
+    B --> C[OnJump recibe el evento]
+    C --> D[jumpRequested = true]
+    D --> E[Unity ejecuta FixedUpdate]
+    E --> F{¿Se solicitó saltar?}
+    F -- No --> K[Conservar velocidad vertical]
+    F -- Sí --> G[IsGrounded consulta en GroundCheck]
+    G --> H{¿Encuentra un Collider2D en Ground?}
+    H -- No --> K
+    H -- Sí --> I[velocity.y = jumpForce]
+    I --> J[Rigidbody2D aplica el movimiento]
+    J --> L[Unity aplica gravedad y resuelve colisiones]
+    K --> M[jumpRequested = false]
+    L --> M
+```
+
+`OnJump` registra la intención y `FixedUpdate` modifica la física. Esta separación evita aplicar cambios físicos fuera del ciclo de física de Unity.
+
+## 7. Conectar el script con los objetos de la escena
 
 1. Selecciona `Kogi` en **Hierarchy**.
 2. En **Inspector**, localiza **Kogi Movement (Script)**.
@@ -206,7 +343,25 @@ No pulses ▶️ si `Ground Check` muestra `None`: el script necesita esa refere
 
 > 💡 **Qué acabas de aprender:** `[SerializeField]` permite conectar referencias desde `Inspector` sin exponer campos públicamente.
 
-## 9. Probar la caída y el salto
+### ¿Qué significa arrastrar GroundCheck al campo?
+
+La variable `groundCheck` necesita una referencia a un `Transform`. Al arrastrar el `GameObject` `GroundCheck`, Unity toma automáticamente su componente `Transform` y guarda esa referencia dentro de la escena.
+
+```mermaid
+flowchart LR
+    A[Arrastrar GroundCheck] --> B[Campo Ground Check]
+    B --> C[Unity obtiene su Transform]
+    C --> D[La escena guarda la referencia]
+    D --> E[El código puede consultar su posición]
+```
+
+No se copia el objeto. El campo queda apuntando al mismo `GroundCheck` que existe como hijo de Kogi. Es parecido a proporcionar una dependencia desde el Editor.
+
+Al marcar `Ground` en **Ground Layer**, guardamos el filtro que utilizará `IsGrounded()`. De esta forma, otros `Colliders` cercanos no cuentan automáticamente como suelo.
+
+> 💡 **Qué acabas de aprender:** el código declara qué referencias necesita y el **Inspector** permite conectarlas con elementos concretos de la escena.
+
+## 8. Probar la caída y el salto
 
 1. Guarda la escena con `Ctrl + S`.
 2. Abre la pestaña **Game** en la zona central.
@@ -218,7 +373,7 @@ No pulses ▶️ si `Ground Check` muestra `None`: el script necesita esa refere
 8. Prueba `A`, `D`, `←` y `→` mientras Kogi está en el suelo y en el aire.
 9. Pulsa ▶️ otra vez para detener la ejecución.
 
-## 10. Revisar el resultado
+## 9. Revisar el resultado
 
 1. Comprueba que ▶️ esté detenido.
 2. Abre **Window > General > Console**.
@@ -247,4 +402,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](02-movimiento-horizontal.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](02-movimiento-horizontal.md) · [🏠 Inicio](../../README.md) · [Siguiente: cámara que sigue a Kogi ➡️](04-camara-que-sigue-a-kogi.md)
