@@ -108,6 +108,7 @@ winget list --id Unity.UnityHub --exact
 9. [Realizar el primer ataque](docs/sesiones/09-primer-ataque.md)
 10. [Mirar y atacar en ambas direcciones](docs/sesiones/10-direccion-y-ataque.md)
 11. [Hacer que Kogi se agache](docs/sesiones/11-agacharse.md)
+12. [Hacer que un guardia patrulle](docs/sesiones/12-patrulla-del-guardia.md)
 
 Después:
 

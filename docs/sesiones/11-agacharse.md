@@ -350,4 +350,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](10-direccion-y-ataque.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](10-direccion-y-ataque.md) · [🏠 Inicio](../../README.md) · [Siguiente: patrulla del guardia ➡️](12-patrulla-del-guardia.md)
