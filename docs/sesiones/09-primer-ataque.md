@@ -353,4 +353,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](08-mostrar-vidas-en-pantalla.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](08-mostrar-vidas-en-pantalla.md) · [🏠 Inicio](../../README.md) · [Siguiente: dirección y ataque ➡️](10-direccion-y-ataque.md)

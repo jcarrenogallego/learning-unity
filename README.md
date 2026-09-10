@@ -106,6 +106,7 @@ winget list --id Unity.UnityHub --exact
 7. [Añadir tres vidas y reiniciar el nivel](docs/sesiones/07-tres-vidas-y-reinicio.md)
 8. [Mostrar las vidas en pantalla](docs/sesiones/08-mostrar-vidas-en-pantalla.md)
 9. [Realizar el primer ataque](docs/sesiones/09-primer-ataque.md)
+10. [Mirar y atacar en ambas direcciones](docs/sesiones/10-direccion-y-ataque.md)
 
 Después:
 
