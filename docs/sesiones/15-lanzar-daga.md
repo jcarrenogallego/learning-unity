@@ -462,4 +462,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](14-invulnerabilidad-temporal.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](14-invulnerabilidad-temporal.md) · [🏠 Inicio](../../README.md) · [Siguiente: disparo del guardia ➡️](16-disparo-del-guardia.md)
