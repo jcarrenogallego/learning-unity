@@ -105,6 +105,7 @@ winget list --id Unity.UnityHub --exact
 6. [Detectar una caída y hacer reaparecer a Kogi](docs/sesiones/06-caida-y-reaparicion.md)
 7. [Añadir tres vidas y reiniciar el nivel](docs/sesiones/07-tres-vidas-y-reinicio.md)
 8. [Mostrar las vidas en pantalla](docs/sesiones/08-mostrar-vidas-en-pantalla.md)
+9. [Realizar el primer ataque](docs/sesiones/09-primer-ataque.md)
 
 Después:
 

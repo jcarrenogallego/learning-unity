@@ -366,4 +366,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](07-tres-vidas-y-reinicio.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](07-tres-vidas-y-reinicio.md) · [🏠 Inicio](../../README.md) · [Siguiente: primer ataque ➡️](09-primer-ataque.md)
