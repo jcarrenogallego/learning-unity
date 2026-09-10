@@ -3,21 +3,16 @@ using UnityEngine.InputSystem;
 
 namespace Kogi.Scripts.Player
 {
-    [RequireComponent(typeof(SpriteRenderer))]
     public sealed class KogiFacing : MonoBehaviour
     {
+        [SerializeField]
+        private SpriteRenderer characterRenderer;
+
         [SerializeField]
         private Transform attackPoint;
 
         [SerializeField, Min(0f)]
         private float attackDistance = 0.75f;
-
-        private SpriteRenderer spriteRenderer;
-
-        private void Awake()
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
 
         private void OnMove(InputValue value)
         {
@@ -29,7 +24,7 @@ namespace Kogi.Scripts.Player
             }
 
             bool isFacingLeft = horizontalDirection < 0f;
-            spriteRenderer.flipX = isFacingLeft;
+            characterRenderer.flipX = isFacingLeft;
 
             Vector3 attackPosition = attackPoint.localPosition;
             attackPosition.x = isFacingLeft ? -attackDistance : attackDistance;

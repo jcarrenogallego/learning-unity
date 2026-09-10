@@ -107,6 +107,7 @@ winget list --id Unity.UnityHub --exact
 8. [Mostrar las vidas en pantalla](docs/sesiones/08-mostrar-vidas-en-pantalla.md)
 9. [Realizar el primer ataque](docs/sesiones/09-primer-ataque.md)
 10. [Mirar y atacar en ambas direcciones](docs/sesiones/10-direccion-y-ataque.md)
+11. [Hacer que Kogi se agache](docs/sesiones/11-agacharse.md)
 
 Después:
 
