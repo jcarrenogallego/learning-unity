@@ -109,6 +109,7 @@ winget list --id Unity.UnityHub --exact
 10. [Mirar y atacar en ambas direcciones](docs/sesiones/10-direccion-y-ataque.md)
 11. [Hacer que Kogi se agache](docs/sesiones/11-agacharse.md)
 12. [Hacer que un guardia patrulle](docs/sesiones/12-patrulla-del-guardia.md)
+13. [Hacer que el contacto con un guardia quite una vida](docs/sesiones/13-dano-por-contacto.md)
 
 Después:
 

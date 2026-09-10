@@ -818,7 +818,7 @@ Transform:
   m_GameObject: {fileID: 1055456081}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1439,6 +1439,7 @@ GameObject:
   - component: {fileID: 1876526268}
   - component: {fileID: 1876526269}
   - component: {fileID: 1876526270}
+  - component: {fileID: 1876526271}
   m_Layer: 0
   m_Name: Kogi
   m_TagString: Untagged
@@ -1455,7 +1456,7 @@ Transform:
   m_GameObject: {fileID: 1876526259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1648,6 +1649,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Player.KogiCrouch
   characterVisual: {fileID: 1355308650}
+--- !u!114 &1876526271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876526259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f90d18e17240b46b1fd5af466ed39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Player.KogiDamageReceiver
+  respawnPoint: {fileID: 1055456082}
 --- !u!1001 &2458479480344868182
 PrefabInstance:
   m_ObjectHideFlags: 0

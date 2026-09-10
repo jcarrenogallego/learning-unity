@@ -297,4 +297,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](11-agacharse.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](11-agacharse.md) · [🏠 Inicio](../../README.md) · [Siguiente: daño por contacto ➡️](13-dano-por-contacto.md)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 331895167164659250}
   - component: {fileID: 7723707342106021562}
   - component: {fileID: 8062067346142810772}
+  - component: {fileID: 685860855243963114}
   m_Layer: 6
   m_Name: GuardiaBasico
   m_TagString: Untagged
@@ -187,3 +188,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyPatrol
   speed: 2
   patrolDistance: 2
+--- !u!114 &685860855243963114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293633192178284191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8981c4244017b646afa72c1751cfe91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyContactDamage
