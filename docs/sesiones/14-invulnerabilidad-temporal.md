@@ -319,4 +319,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](13-dano-por-contacto.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](13-dano-por-contacto.md) · [🏠 Inicio](../../README.md) · [Siguiente: lanzar una daga ➡️](15-lanzar-daga.md)

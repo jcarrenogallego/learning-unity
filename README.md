@@ -111,6 +111,7 @@ winget list --id Unity.UnityHub --exact
 12. [Hacer que un guardia patrulle](docs/sesiones/12-patrulla-del-guardia.md)
 13. [Hacer que el contacto con un guardia quite una vida](docs/sesiones/13-dano-por-contacto.md)
 14. [Añadir invulnerabilidad temporal después de recibir daño](docs/sesiones/14-invulnerabilidad-temporal.md)
+15. [Lanzar una daga contra los guardias](docs/sesiones/15-lanzar-daga.md)
 
 Después:
 

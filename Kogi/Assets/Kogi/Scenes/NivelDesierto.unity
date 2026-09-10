@@ -1440,6 +1440,7 @@ GameObject:
   - component: {fileID: 1876526269}
   - component: {fileID: 1876526270}
   - component: {fileID: 1876526271}
+  - component: {fileID: 1876526272}
   m_Layer: 0
   m_Name: Kogi
   m_TagString: Untagged
@@ -1665,6 +1666,20 @@ MonoBehaviour:
   characterRenderer: {fileID: 1355308651}
   invulnerabilityDuration: 1.5
   flashInterval: 0.1
+--- !u!114 &1876526272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876526259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29e5218488552f47a79e743c54c4915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Player.KogiDaggerThrower
+  launchPoint: {fileID: 1875238367}
+  daggerPrefab: {fileID: 4861572574148770484, guid: c5e6d109de41b9a42a8decf870ccf3dc, type: 3}
 --- !u!1001 &2458479480344868182
 PrefabInstance:
   m_ObjectHideFlags: 0
