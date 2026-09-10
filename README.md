@@ -101,6 +101,10 @@ winget list --id Unity.UnityHub --exact
 2. [Mover a Kogi horizontalmente con C#](docs/sesiones/02-movimiento-horizontal.md)
 3. [Añadir gravedad, colisiones y salto](docs/sesiones/03-gravedad-colisiones-salto.md)
 4. [Hacer que la cámara siga a Kogi](docs/sesiones/04-camara-que-sigue-a-kogi.md)
+5. [Construir plataformas reutilizables](docs/sesiones/05-plataformas-reutilizables.md)
+6. [Detectar una caída y hacer reaparecer a Kogi](docs/sesiones/06-caida-y-reaparicion.md)
+7. [Añadir tres vidas y reiniciar el nivel](docs/sesiones/07-tres-vidas-y-reinicio.md)
+8. [Mostrar las vidas en pantalla](docs/sesiones/08-mostrar-vidas-en-pantalla.md)
 
 Después:
 

@@ -214,4 +214,4 @@ La sesión está terminada si:
 
 ---
 
-[⬅️ Sesión anterior](03-gravedad-colisiones-salto.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](03-gravedad-colisiones-salto.md) · [🏠 Inicio](../../README.md) · [Siguiente: plataformas reutilizables ➡️](05-plataformas-reutilizables.md)
