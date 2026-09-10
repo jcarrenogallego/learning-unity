@@ -303,4 +303,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](12-patrulla-del-guardia.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](12-patrulla-del-guardia.md) · [🏠 Inicio](../../README.md) · [Siguiente: invulnerabilidad temporal ➡️](14-invulnerabilidad-temporal.md)
