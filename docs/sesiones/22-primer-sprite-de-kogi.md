@@ -208,4 +208,4 @@ Esta separación permite iterar sobre el arte sin reconstruir el personaje jugab
 
 ---
 
-[⬅️ Sesión anterior](21-animator-de-kogi.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](21-animator-de-kogi.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](23-fondo-parallax-del-desierto.md)
