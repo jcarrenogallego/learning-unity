@@ -218,4 +218,4 @@ En una versión artística posterior podremos añadir sprites de lámparas, llam
 
 ---
 
-[⬅️ Sesión anterior](24-limites-de-camara.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](24-limites-de-camara.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](26-sombras-2d.md)

@@ -122,6 +122,7 @@ winget list --id Unity.UnityHub --exact
 23. [Crear profundidad con un fondo parallax](docs/sesiones/23-fondo-parallax-del-desierto.md)
 24. [Limitar la cámara dentro del nivel](docs/sesiones/24-limites-de-camara.md)
 25. [Crear iluminación 2D ambiental](docs/sesiones/25-iluminacion-2d-ambiental.md)
+26. [Proyectar sombras con Shadow Caster 2D](docs/sesiones/26-sombras-2d.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 

@@ -33,6 +33,8 @@ Los dos guardias utilizan `Detection Range = 6`. Desde la posición inicial de K
 
 `MoonGlow` y `WarmRuinsLight` son hijos del contenedor `EnvironmentLighting`. Sus ángulos interior y exterior son de `360°`.
 
+Proyectan sombras mediante `Shadow Caster 2D`: `Kogi`, `GuardiaIzquierda`, `GuardiaBasico`, `PlataformaBase`, `Plataforma02` y `Plataforma03`. El suelo se mantiene sin este componente para evitar una gran sombra innecesaria debajo del nivel.
+
 ```mermaid
 flowchart LR
     GI[GuardiaIzquierda<br/>X -8] --- K[Kogi<br/>X 1]
