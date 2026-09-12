@@ -17,6 +17,8 @@ namespace Kogi.Scripts.Player
         private Vector3 standingVisualScale;
         private Vector3 standingVisualPosition;
 
+        public bool IsCrouching { get; private set; }
+
         private void Awake()
         {
             bodyCollider = GetComponent<CapsuleCollider2D>();
@@ -33,6 +35,8 @@ namespace Kogi.Scripts.Player
 
         private void SetCrouching(bool isCrouching)
         {
+            IsCrouching = isCrouching;
+
             float multiplier = isCrouching ? CrouchHeightMultiplier : 1f;
 
             Vector2 colliderSize = standingColliderSize;

@@ -405,4 +405,4 @@ stateDiagram-v2
 
 ---
 
-[⬅️ Sesión anterior](19-dano-y-muerte-del-guardia.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](19-dano-y-muerte-del-guardia.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](21-animator-de-kogi.md)

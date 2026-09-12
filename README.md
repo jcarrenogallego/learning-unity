@@ -117,6 +117,7 @@ winget list --id Unity.UnityHub --exact
 18. [Organizar al guardia con una máquina de estados](docs/sesiones/18-estados-del-guardia.md)
 19. [Integrar daño y muerte en los estados del guardia](docs/sesiones/19-dano-y-muerte-del-guardia.md)
 20. [Avisar antes de que el guardia dispare](docs/sesiones/20-anticipacion-del-disparo.md)
+21. [Conectar las acciones de Kogi con Animator](docs/sesiones/21-animator-de-kogi.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 

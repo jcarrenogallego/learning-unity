@@ -25,6 +25,12 @@ namespace Kogi.Scripts.Player
         private Vector2 movementInput;
         private bool jumpRequested;
 
+        public float HorizontalSpeed => Mathf.Abs(body.linearVelocity.x);
+
+        public float VerticalSpeed => body.linearVelocity.y;
+
+        public bool IsGrounded { get; private set; }
+
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
@@ -45,10 +51,12 @@ namespace Kogi.Scripts.Player
 
         private void FixedUpdate()
         {
+            IsGrounded = CheckIsGrounded();
+
             Vector2 velocity = body.linearVelocity;
             velocity.x = movementInput.x * speed;
 
-            if (jumpRequested && IsGrounded())
+            if (jumpRequested && IsGrounded)
             {
                 velocity.y = jumpForce;
             }
@@ -57,7 +65,7 @@ namespace Kogi.Scripts.Player
             jumpRequested = false;
         }
 
-        private bool IsGrounded()
+        private bool CheckIsGrounded()
         {
             return Physics2D.OverlapCircle(
                 groundCheck.position,
