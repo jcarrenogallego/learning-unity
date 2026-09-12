@@ -1,28 +1,40 @@
+using System;
 using UnityEngine;
 
 namespace Kogi.Scripts.Combat
 {
     public sealed class EnemyHealth : MonoBehaviour
     {
+        public event Action Damaged;
+        public event Action Died;
+
+        public int CurrentHealth { get; private set; }
+
         [SerializeField, Min(1)]
         private int maximumHealth = 3;
 
-        private int currentHealth;
-
         private void Awake()
         {
-            currentHealth = maximumHealth;
+            CurrentHealth = maximumHealth;
         }
 
         public void TakeDamage(int damage)
         {
-            currentHealth = Mathf.Max(0, currentHealth - damage);
-            Debug.Log($"Salud de {name}: {currentHealth}");
-
-            if (currentHealth == 0)
+            if (CurrentHealth == 0)
             {
-                gameObject.SetActive(false);
+                return;
             }
+
+            CurrentHealth = Mathf.Max(0, CurrentHealth - damage);
+            Debug.Log($"Salud de {name}: {CurrentHealth}");
+
+            if (CurrentHealth == 0)
+            {
+                Died?.Invoke();
+                return;
+            }
+
+            Damaged?.Invoke();
         }
     }
 }

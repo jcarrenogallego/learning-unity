@@ -434,4 +434,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](17-linea-de-vision.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](17-linea-de-vision.md) · [🏠 Inicio](../../README.md) · [Sesión siguiente ➡️](19-dano-y-muerte-del-guardia.md)

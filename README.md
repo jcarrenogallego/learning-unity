@@ -115,6 +115,7 @@ winget list --id Unity.UnityHub --exact
 16. [Hacer que los guardias disparen a Kogi](docs/sesiones/16-disparo-del-guardia.md)
 17. [Comprobar la línea de visión de los guardias](docs/sesiones/17-linea-de-vision.md)
 18. [Organizar al guardia con una máquina de estados](docs/sesiones/18-estados-del-guardia.md)
+19. [Integrar daño y muerte en los estados del guardia](docs/sesiones/19-dano-y-muerte-del-guardia.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 

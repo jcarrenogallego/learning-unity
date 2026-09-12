@@ -279,3 +279,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5cf71146d07454aa9270602113e33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyBrain
+  hurtDuration: 0.25
+  deathDelay: 0.5
