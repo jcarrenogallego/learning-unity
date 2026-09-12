@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Kogi.Scripts.Enemies
 {
-    [RequireComponent(typeof(EnemyVision))]
     public sealed class EnemyShooter : MonoBehaviour
     {
         [SerializeField]
@@ -15,29 +14,17 @@ namespace Kogi.Scripts.Enemies
         [SerializeField, Min(0.1f)]
         private float shotCooldown = 2f;
 
-        private float remainingCooldown;
-        private EnemyVision vision;
+        private float nextShotTime;
 
-        private void Awake()
+        public bool IsReady => Time.time >= nextShotTime;
+
+        public void Shoot(Vector2 direction)
         {
-            vision = GetComponent<EnemyVision>();
-        }
-
-        private void Update()
-        {
-            remainingCooldown -= Time.deltaTime;
-
-            if (!vision.CanSeeTarget || remainingCooldown > 0f)
+            if (!IsReady)
             {
                 return;
             }
 
-            Shoot(vision.DirectionToTarget);
-            remainingCooldown = shotCooldown;
-        }
-
-        private void Shoot(Vector2 direction)
-        {
             Vector3 firePointPosition = firePoint.localPosition;
             firePointPosition.x = Mathf.Abs(firePointPosition.x)
                 * Mathf.Sign(direction.x);
@@ -49,6 +36,7 @@ namespace Kogi.Scripts.Enemies
                 Quaternion.identity);
 
             projectile.Launch(direction, gameObject);
+            nextShotTime = Time.time + shotCooldown;
         }
     }
 }

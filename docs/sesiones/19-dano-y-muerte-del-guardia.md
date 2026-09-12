@@ -351,4 +351,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](18-estados-del-guardia.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](18-estados-del-guardia.md) · [🏠 Inicio](../../README.md) · [Sesión siguiente ➡️](20-anticipacion-del-disparo.md)
