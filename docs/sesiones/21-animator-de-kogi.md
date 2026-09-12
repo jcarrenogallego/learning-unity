@@ -292,4 +292,4 @@ stateDiagram-v2
 
 ---
 
-[⬅️ Sesión anterior](20-anticipacion-del-disparo.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](20-anticipacion-del-disparo.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](22-primer-sprite-de-kogi.md)
