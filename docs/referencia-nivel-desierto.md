@@ -44,6 +44,17 @@ Proyectan sombras mediante `Shadow Caster 2D`: `Kogi`, `GuardiaIzquierda`, `Guar
 
 Ambos son hijos de `AmbientParticles`, usan el material URP 2D `AmbientParticle` y la textura circular suave `SoftParticleTexture`. Son efectos visuales: no contienen colliders, no aplican daño y no alteran la iluminación ni la física.
 
+## Posprocesado
+
+La escena contiene el GameObject raíz `PostProcessing` con un `Global Volume`. Utiliza el perfil `Assets/Kogi/Settings/PostProcessing/NivelDesiertoPostProcessing.asset`:
+
+| Efecto | Valores principales | Propósito |
+|---|---|---|
+| `Bloom` | Threshold `0.75`, Intensity `0.3`, Scatter `0.65` | Suavizar el brillo de luces y partículas |
+| `Vignette` | Intensity `0.22`, Smoothness `0.45`, color `#080B1A` | Oscurecer discretamente los bordes |
+
+La cámara principal tiene activado el posprocesado. Estos efectos modifican únicamente la imagen final; no cambian las luces, sprites, colliders ni reglas del juego.
+
 ```mermaid
 flowchart LR
     GI[GuardiaIzquierda<br/>X -8] --- K[Kogi<br/>X 1]

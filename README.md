@@ -124,6 +124,7 @@ winget list --id Unity.UnityHub --exact
 25. [Crear iluminación 2D ambiental](docs/sesiones/25-iluminacion-2d-ambiental.md)
 26. [Proyectar sombras con Shadow Caster 2D](docs/sesiones/26-sombras-2d.md)
 27. [Crear partículas ambientales](docs/sesiones/27-particulas-ambientales.md)
+28. [Aplicar posprocesado con Global Volume](docs/sesiones/28-posprocesado-global.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 

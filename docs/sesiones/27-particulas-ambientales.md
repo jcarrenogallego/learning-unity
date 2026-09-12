@@ -212,4 +212,4 @@ No activamos `Collision`: por eso las partículas atraviesan el escenario y no p
 
 ---
 
-[⬅️ Sesión anterior](26-sombras-2d.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](26-sombras-2d.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](28-posprocesado-global.md)
