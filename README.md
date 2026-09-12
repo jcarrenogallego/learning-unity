@@ -113,6 +113,10 @@ winget list --id Unity.UnityHub --exact
 14. [Añadir invulnerabilidad temporal después de recibir daño](docs/sesiones/14-invulnerabilidad-temporal.md)
 15. [Lanzar una daga contra los guardias](docs/sesiones/15-lanzar-daga.md)
 16. [Hacer que los guardias disparen a Kogi](docs/sesiones/16-disparo-del-guardia.md)
+17. [Comprobar la línea de visión de los guardias](docs/sesiones/17-linea-de-vision.md)
+18. [Organizar al guardia con una máquina de estados](docs/sesiones/18-estados-del-guardia.md)
+
+Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 
 Después:
 

@@ -1345,9 +1345,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: GuardiaIzquierda
       objectReference: {fileID: 0}
+    - target: {fileID: 2293633192178284191, guid: e01d8f6f2d24e094783a99d12c3b0ada, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6059745067489211292, guid: e01d8f6f2d24e094783a99d12c3b0ada, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -8
       objectReference: {fileID: 0}
     - target: {fileID: 6059745067489211292, guid: e01d8f6f2d24e094783a99d12c3b0ada, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1441,7 +1445,7 @@ GameObject:
   - component: {fileID: 1876526270}
   - component: {fileID: 1876526271}
   - component: {fileID: 1876526272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kogi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1751,7 +1755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6059745067489211292, guid: e01d8f6f2d24e094783a99d12c3b0ada, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6059745067489211292, guid: e01d8f6f2d24e094783a99d12c3b0ada, type: 3}
       propertyPath: m_LocalPosition.y

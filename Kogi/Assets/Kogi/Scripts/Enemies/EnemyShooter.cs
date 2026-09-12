@@ -1,9 +1,9 @@
-using Kogi.Scripts.Player;
 using Kogi.Scripts.Projectiles;
 using UnityEngine;
 
 namespace Kogi.Scripts.Enemies
 {
+    [RequireComponent(typeof(EnemyVision))]
     public sealed class EnemyShooter : MonoBehaviour
     {
         [SerializeField]
@@ -12,42 +12,27 @@ namespace Kogi.Scripts.Enemies
         [SerializeField]
         private EnemyProjectile projectilePrefab;
 
-        [SerializeField, Min(0f)]
-        private float detectionRange = 6f;
-
         [SerializeField, Min(0.1f)]
         private float shotCooldown = 2f;
 
-        private Transform target;
         private float remainingCooldown;
+        private EnemyVision vision;
 
-        private void Start()
+        private void Awake()
         {
-            KogiDamageReceiver receiver = FindFirstObjectByType<KogiDamageReceiver>();
-
-            if (receiver is not null)
-            {
-                target = receiver.transform;
-            }
+            vision = GetComponent<EnemyVision>();
         }
 
         private void Update()
         {
             remainingCooldown -= Time.deltaTime;
 
-            if (target is null || remainingCooldown > 0f)
+            if (!vision.CanSeeTarget || remainingCooldown > 0f)
             {
                 return;
             }
 
-            Vector2 direction = target.position - firePoint.position;
-
-            if (direction.magnitude > detectionRange)
-            {
-                return;
-            }
-
-            Shoot(direction);
+            Shoot(vision.DirectionToTarget);
             remainingCooldown = shotCooldown;
         }
 

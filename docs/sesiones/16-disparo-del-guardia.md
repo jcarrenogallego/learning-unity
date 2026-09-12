@@ -471,4 +471,4 @@ La sesión estará terminada cuando:
 
 ---
 
-[⬅️ Sesión anterior](15-lanzar-daga.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](15-lanzar-daga.md) · [🏠 Inicio](../../README.md) · [Sesión siguiente ➡️](17-linea-de-vision.md)

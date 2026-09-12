@@ -47,6 +47,8 @@ GameObject:
   - component: {fileID: 8062067346142810772}
   - component: {fileID: 685860855243963114}
   - component: {fileID: 4474441878246026384}
+  - component: {fileID: 2804803538167364148}
+  - component: {fileID: 1476489481306893987}
   m_Layer: 6
   m_Name: GuardiaBasico
   m_TagString: Untagged
@@ -247,5 +249,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyShooter
   firePoint: {fileID: 7264327658872994658}
   projectilePrefab: {fileID: 7546574030433468561, guid: 44d2981b9396e1d4488f10711dbafeb0, type: 3}
-  detectionRange: 6
   shotCooldown: 2
+--- !u!114 &2804803538167364148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293633192178284191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d911cafff6fe8458be9e9bc19335e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyVision
+  visionPoint: {fileID: 7264327658872994658}
+  detectionRange: 6
+  visibleLayers:
+    serializedVersion: 2
+    m_Bits: 264
+--- !u!114 &1476489481306893987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293633192178284191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5cf71146d07454aa9270602113e33f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kogi.Scripts.Enemies.EnemyBrain
