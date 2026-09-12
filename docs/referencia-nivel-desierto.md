@@ -23,6 +23,16 @@ Este documento registra las posiciones de trabajo acordadas. Debe consultarse an
 
 Los dos guardias utilizan `Detection Range = 6`. Desde la posición inicial de Kogi ninguno puede verlo, por lo que la escena comienza sin disparos inmediatos.
 
+## Iluminación ambiental
+
+| GameObject | Position `(X, Y, Z)` | Tipo | Color | Intensidad | Radio exterior |
+|---|---|---|---|---:|---:|
+| `Global Light 2D` | Global | `Global` | `#6B79A6` | `0.45` | — |
+| `MoonGlow` | `(0, 2.5, 0)` | `Spot` circular | `#63C7FF` | `0.85` | `7` |
+| `WarmRuinsLight` | `(-8, 0, 0)` | `Spot` circular | `#FF9A55` | `1.1` | `4.5` |
+
+`MoonGlow` y `WarmRuinsLight` son hijos del contenedor `EnvironmentLighting`. Sus ángulos interior y exterior son de `360°`.
+
 ```mermaid
 flowchart LR
     GI[GuardiaIzquierda<br/>X -8] --- K[Kogi<br/>X 1]

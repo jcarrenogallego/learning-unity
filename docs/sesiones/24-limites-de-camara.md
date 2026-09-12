@@ -229,4 +229,4 @@ Cuando la cámara se detiene en un límite, el fondo también deja de recibir de
 
 ---
 
-[⬅️ Sesión anterior](23-fondo-parallax-del-desierto.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](23-fondo-parallax-del-desierto.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](25-iluminacion-2d-ambiental.md)
