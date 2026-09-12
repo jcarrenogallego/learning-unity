@@ -120,6 +120,7 @@ winget list --id Unity.UnityHub --exact
 21. [Conectar las acciones de Kogi con Animator](docs/sesiones/21-animator-de-kogi.md)
 22. [Importar la primera identidad visual de Kogi](docs/sesiones/22-primer-sprite-de-kogi.md)
 23. [Crear profundidad con un fondo parallax](docs/sesiones/23-fondo-parallax-del-desierto.md)
+24. [Limitar la cámara dentro del nivel](docs/sesiones/24-limites-de-camara.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 

@@ -246,4 +246,4 @@ flowchart TD
 
 ---
 
-[⬅️ Sesión anterior](22-primer-sprite-de-kogi.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](22-primer-sprite-de-kogi.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](24-limites-de-camara.md)
