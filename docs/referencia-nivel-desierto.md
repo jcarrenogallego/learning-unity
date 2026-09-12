@@ -35,6 +35,15 @@ Los dos guardias utilizan `Detection Range = 6`. Desde la posición inicial de K
 
 Proyectan sombras mediante `Shadow Caster 2D`: `Kogi`, `GuardiaIzquierda`, `GuardiaBasico`, `PlataformaBase`, `Plataforma02` y `Plataforma03`. El suelo se mantiene sin este componente para evitar una gran sombra innecesaria debajo del nivel.
 
+## Partículas ambientales
+
+| GameObject | Position `(X, Y, Z)` | Área de emisión | Color | Partículas por segundo |
+|---|---|---|---|---:|
+| `BlueWisps` | `(0, 0.5, 0)` | Caja `(22, 1, 0.1)` | `#63C7FF` | `6` |
+| `WarmEmbers` | `(-8, 0, 0)` | Caja `(4, 0.5, 0.1)` | `#FFB56B` | `4` |
+
+Ambos son hijos de `AmbientParticles`, usan el material URP 2D `AmbientParticle` y la textura circular suave `SoftParticleTexture`. Son efectos visuales: no contienen colliders, no aplican daño y no alteran la iluminación ni la física.
+
 ```mermaid
 flowchart LR
     GI[GuardiaIzquierda<br/>X -8] --- K[Kogi<br/>X 1]

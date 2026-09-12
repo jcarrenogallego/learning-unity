@@ -214,4 +214,4 @@ Cambiar el collider no garantiza que cambie la sombra. Cambiar el sprite tampoco
 
 ---
 
-[⬅️ Sesión anterior](25-iluminacion-2d-ambiental.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](25-iluminacion-2d-ambiental.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](27-particulas-ambientales.md)
