@@ -6,7 +6,7 @@ namespace Kogi.Scripts.Player
     public sealed class KogiFacing : MonoBehaviour
     {
         [SerializeField]
-        private SpriteRenderer characterRenderer;
+        private Transform characterVisual;
 
         [SerializeField]
         private Transform attackPoint;
@@ -24,7 +24,9 @@ namespace Kogi.Scripts.Player
             }
 
             bool isFacingLeft = horizontalDirection < 0f;
-            characterRenderer.flipX = isFacingLeft;
+            Vector3 visualScale = characterVisual.localScale;
+            visualScale.x = Mathf.Abs(visualScale.x) * (isFacingLeft ? -1f : 1f);
+            characterVisual.localScale = visualScale;
 
             Vector3 attackPosition = attackPoint.localPosition;
             attackPosition.x = isFacingLeft ? -attackDistance : attackDistance;

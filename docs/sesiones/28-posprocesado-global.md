@@ -202,4 +202,4 @@ Sí añade un coste gráfico. Por eso utilizamos pocos efectos y valores prudent
 
 ---
 
-[⬅️ Sesión anterior](27-particulas-ambientales.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](27-particulas-ambientales.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](29-kogi-modular.md)

@@ -99,12 +99,14 @@ flowchart LR
 2. Configura `Space = World`.
 3. En `Linear X`, elige `Random Between Two Constants`: `-0.08` y `0.08`.
 4. En `Linear Y`, elige `Random Between Two Constants`: `0.2` y `0.55`.
-5. Deja `Linear Z = 0`.
+5. En `Linear Z`, elige también `Random Between Two Constants` y escribe `0` y `0`.
 6. Activa y abre **Color over Lifetime**.
 7. Abre el degradado de color.
 8. Conserva el azul y configura la transparencia para que comience en `0`, suba aproximadamente a `0.85` y termine en `0`.
 
 El movimiento ascendente procede de `Velocity over Lifetime`; el desvanecimiento procede del canal alfa del degradado.
+
+> ⚠️ Aunque no queremos movimiento en profundidad, `X`, `Y` y `Z` deben usar el mismo modo. Por eso `Z` se configura como `Random Between Two Constants (0, 0)`, y no como un valor constante suelto.
 
 > 💡 **Qué acabas de aprender:** los módulos modifican una partícula mientras envejece, sin necesitar `Update()` ni un script propio.
 
@@ -143,7 +145,7 @@ El movimiento ascendente procede de `Velocity over Lifetime`; el desvanecimiento
 
 6. En **Emission**, configura `Rate over Time = 4`.
 7. En **Shape**, elige `Box` y `Scale (4, 0.5, 0.1)`.
-8. En **Velocity over Lifetime**, usa `X` entre `-0.06` y `0.06`, e `Y` entre `0.35` y `0.75`.
+8. En **Velocity over Lifetime**, usa `X` entre `-0.06` y `0.06`, `Y` entre `0.35` y `0.75`, y `Z` entre `0` y `0`. Los tres ejes deben estar en `Random Between Two Constants`.
 9. En **Color over Lifetime**, haz que el alfa pase de `0` a `0.9` y vuelva a `0`.
 10. En **Renderer**, usa `Billboard`, `Order in Layer = -1` y el material `AmbientParticle`.
 
@@ -194,6 +196,7 @@ No activamos `Collision`: por eso las partículas atraviesan el escenario y no p
 - [ ] `BlueWisps` emite `6` partículas por segundo en una caja de `(22, 1, 0.1)`.
 - [ ] `WarmEmbers` emite `4` partículas por segundo en una caja de `(4, 0.5, 0.1)`.
 - [ ] Las partículas ascienden y aparecen/desaparecen suavemente.
+- [ ] En ambos sistemas, `X`, `Y` y `Z` de **Velocity over Lifetime** usan `Random Between Two Constants`.
 - [ ] Ambos renderizadores utilizan `Billboard` y orden `-1`.
 - [ ] Ambos renderizadores tienen asignado el material `AmbientParticle`.
 - [ ] Ningún emisor contiene un collider.
@@ -205,6 +208,7 @@ No activamos `Collision`: por eso las partículas atraviesan el escenario y no p
 - **No veo partículas:** selecciona el emisor y confirma que `Emission` esté activo, que `Rate over Time` sea mayor que cero y que `Play On Awake` esté marcado.
 - **Aparecen como cuadrados fucsias:** abre `Renderer > Material` y asigna `Assets/Kogi/Art/Effects/AmbientParticle`. El fucsia es la señal de Unity para un shader ausente o incompatible.
 - **Todas se mueven exactamente igual:** utiliza `Random Between Two Constants` en tamaño y velocidad.
+- **Console repite `Particle velocity curves must all be in the same mode`:** abre **Velocity over Lifetime** y comprueba que `X`, `Y` y `Z` estén en `Random Between Two Constants`; para `Z`, usa `0` y `0`.
 - **Las partículas tapan a Kogi:** confirma `Order in Layer = -1`.
 - **Se mueven al desplazar el emisor:** comprueba `Simulation Space = World`.
 - **Kogi choca con ellas:** los emisores no deben tener `Collider 2D` ni debe estar activo el módulo `Collision`.

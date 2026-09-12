@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,6 +32,8 @@ namespace Kogi.Scripts.Player
 
         public bool IsGrounded { get; private set; }
 
+        public event Action Jumped;
+
         private void Awake()
         {
             body = GetComponent<Rigidbody2D>();
@@ -59,6 +62,7 @@ namespace Kogi.Scripts.Player
             if (jumpRequested && IsGrounded)
             {
                 velocity.y = jumpForce;
+                Jumped?.Invoke();
             }
 
             body.linearVelocity = velocity;

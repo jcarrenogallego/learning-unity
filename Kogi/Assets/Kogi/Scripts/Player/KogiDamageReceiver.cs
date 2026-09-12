@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Kogi.Scripts.Player
         private Transform respawnPoint;
 
         [SerializeField]
-        private SpriteRenderer characterRenderer;
+        private Transform characterVisual;
 
         [SerializeField, Min(0.1f)]
         private float invulnerabilityDuration = 1.5f;
@@ -20,6 +21,8 @@ namespace Kogi.Scripts.Player
 
         private KogiLives lives;
         private bool isInvulnerable;
+
+        public event Action HitReceived;
 
         private void Awake()
         {
@@ -34,6 +37,7 @@ namespace Kogi.Scripts.Player
             }
 
             isInvulnerable = true;
+            HitReceived?.Invoke();
             lives.LoseLife(respawnPoint.position);
             StartCoroutine(ShowInvulnerability());
         }
@@ -44,12 +48,12 @@ namespace Kogi.Scripts.Player
 
             while (elapsedTime < invulnerabilityDuration)
             {
-                characterRenderer.enabled = !characterRenderer.enabled;
+                characterVisual.gameObject.SetActive(!characterVisual.gameObject.activeSelf);
                 yield return new WaitForSeconds(flashInterval);
                 elapsedTime += flashInterval;
             }
 
-            characterRenderer.enabled = true;
+            characterVisual.gameObject.SetActive(true);
             isInvulnerable = false;
         }
     }

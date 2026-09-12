@@ -1,3 +1,4 @@
+using System;
 using Kogi.Scripts.Combat;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +7,8 @@ namespace Kogi.Scripts.Player
 {
     public sealed class KogiAttack : MonoBehaviour
     {
+        public event Action AttackPerformed;
+
         [SerializeField]
         private Transform attackPoint;
 
@@ -30,6 +33,8 @@ namespace Kogi.Scripts.Player
 
         private void Attack()
         {
+            AttackPerformed?.Invoke();
+
             Collider2D[] hits = Physics2D.OverlapCircleAll(
                 attackPoint.position,
                 attackRadius,

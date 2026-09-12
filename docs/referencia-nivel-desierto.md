@@ -55,6 +55,12 @@ La escena contiene el GameObject raíz `PostProcessing` con un `Global Volume`. 
 
 La cámara principal tiene activado el posprocesado. Estos efectos modifican únicamente la imagen final; no cambian las luces, sprites, colliders ni reglas del juego.
 
+## Identidad modular de Kogi
+
+`Kogi` conserva `Rigidbody2D`, collider y scripts en el GameObject raíz. Su apariencia está separada dentro de `KogiRig`, construido con once sprites de `KogiRigParts.asset`. El rig usa articulaciones `Transform` y `KogiRigAnimator`; no altera la física.
+
+La ilustración modular fuente es `Assets/Kogi/Art/Characters/Kogi/KogiPartsSheet.png`. Los sonidos provisionales de salto, ataque y daño están en `Assets/Kogi/Audio/SFX/Player` y los reproduce un único `AudioSource` mediante `KogiAudioFeedback`.
+
 ```mermaid
 flowchart LR
     GI[GuardiaIzquierda<br/>X -8] --- K[Kogi<br/>X 1]

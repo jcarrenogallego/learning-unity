@@ -125,6 +125,13 @@ winget list --id Unity.UnityHub --exact
 26. [Proyectar sombras con Shadow Caster 2D](docs/sesiones/26-sombras-2d.md)
 27. [Crear partículas ambientales](docs/sesiones/27-particulas-ambientales.md)
 28. [Aplicar posprocesado con Global Volume](docs/sesiones/28-posprocesado-global.md)
+29. [Preparar a Kogi como personaje modular](docs/sesiones/29-kogi-modular.md)
+30. [Construir el rig cutout de Kogi](docs/sesiones/30-rig-cutout.md)
+31. [Animar reposo y carrera](docs/sesiones/31-animacion-reposo-carrera.md)
+32. [Animar salto, caída y agachado](docs/sesiones/32-animacion-aerea-agachado.md)
+33. [Animar el ataque de Kogi](docs/sesiones/33-animacion-ataque.md)
+34. [Añadir respuesta visual al daño](docs/sesiones/34-respuesta-visual-dano.md)
+35. [Añadir sonidos a las acciones](docs/sesiones/35-sonidos-de-kogi.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
 
