@@ -1,4 +1,5 @@
 using UnityEngine;
+using Kogi.Scripts.Audio;
 
 namespace Kogi.Scripts.Player.Audio
 {
@@ -33,8 +34,12 @@ namespace Kogi.Scripts.Player.Audio
             damageReceiver.HitReceived -= PlayHurt;
         }
 
-        private void PlayJump() => source.PlayOneShot(jumpClip, 0.45f);
-        private void PlayAttack() => source.PlayOneShot(attackClip, 0.55f);
-        private void PlayHurt() => source.PlayOneShot(hurtClip, 0.65f);
+        private float EffectsVolume => GameAudioManager.Instance != null
+            ? GameAudioManager.Instance.EffectsVolume
+            : 1f;
+
+        private void PlayJump() => source.PlayOneShot(jumpClip, 0.45f * EffectsVolume);
+        private void PlayAttack() => source.PlayOneShot(attackClip, 0.55f * EffectsVolume);
+        private void PlayHurt() => source.PlayOneShot(hurtClip, 0.65f * EffectsVolume);
     }
 }

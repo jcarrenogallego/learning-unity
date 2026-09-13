@@ -18,6 +18,11 @@ namespace Kogi.Scripts.Enemies
 
         public bool IsReady => Time.time >= nextShotTime;
 
+        public void Configure(float cooldown)
+        {
+            shotCooldown = Mathf.Max(0.1f, cooldown);
+        }
+
         public void Shoot(Vector2 direction)
         {
             if (!IsReady)

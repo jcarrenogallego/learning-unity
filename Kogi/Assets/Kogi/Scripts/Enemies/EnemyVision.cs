@@ -22,9 +22,14 @@ namespace Kogi.Scripts.Enemies
             ? Vector2.zero
             : target.position - visionPoint.position;
 
+        public void Configure(float range)
+        {
+            detectionRange = Mathf.Max(0f, range);
+        }
+
         private void Start()
         {
-            KogiDamageReceiver receiver = FindFirstObjectByType<KogiDamageReceiver>();
+            KogiDamageReceiver receiver = FindAnyObjectByType<KogiDamageReceiver>();
 
             if (receiver is not null)
             {

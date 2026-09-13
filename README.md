@@ -132,8 +132,23 @@ winget list --id Unity.UnityHub --exact
 33. [Animar el ataque de Kogi](docs/sesiones/33-animacion-ataque.md)
 34. [Añadir respuesta visual al daño](docs/sesiones/34-respuesta-visual-dano.md)
 35. [Añadir sonidos a las acciones](docs/sesiones/35-sonidos-de-kogi.md)
+36. [Añadir música ambiental y separar volúmenes](docs/sesiones/36-musica-y-mezcla.md)
+37. [Pausar y reanudar la partida](docs/sesiones/37-pausa.md)
+38. [Mostrar el fin de partida y reiniciar](docs/sesiones/38-fin-de-partida.md)
+39. [Cambiar entre niveles mediante portales](docs/sesiones/39-transicion-entre-niveles.md)
+40. [Activar puntos de control](docs/sesiones/40-checkpoints.md)
+41. [Guardar y cargar la partida](docs/sesiones/41-guardar-y-cargar.md)
+42. [Recoger reliquias persistentes](docs/sesiones/42-coleccionables.md)
+43. [Interactuar con puertas, palancas y personajes](docs/sesiones/43-interacciones.md)
+44. [Crear variantes de enemigos](docs/sesiones/44-variantes-de-enemigos.md)
+45. [Crear un jefe sencillo con dos fases](docs/sesiones/45-jefe-del-desierto.md)
+46. [Probar, optimizar y crear una build ejecutable](docs/sesiones/46-pruebas-y-build.md)
 
 Consulta también la [referencia actual de NivelDesierto](docs/referencia-nivel-desierto.md) antes de añadir o mover elementos de la escena.
+
+### Estado del prototipo
+
+El bloque de 46 sesiones tiene un cierre de victoria y una build Windows. Consulta el [informe de verificación de la sesión 46](docs/verificacion-cierre-sesion-46.md) para ver las pruebas, mediciones y límites de la validación. La versión local se ejecuta desde `Builds/Windows/Kogi.exe`; comparte la carpeta completa. Los ejecutables no se guardan en Git y pueden regenerarse siguiendo la sesión 46.
 
 La dirección artística y el futuro rig están definidos en el [plan de producción visual](docs/diseno/plan-produccion-visual.md).
 

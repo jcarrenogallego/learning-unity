@@ -44,6 +44,12 @@ namespace Kogi.Scripts.Enemies
             body.MovePosition(new Vector2(nextPositionX, body.position.y));
         }
 
+        public void Configure(float movementSpeed, float distance)
+        {
+            speed = Mathf.Max(0f, movementSpeed);
+            patrolDistance = Mathf.Max(0f, distance);
+        }
+
         private void ChangeDirection(int newDirection)
         {
             direction = newDirection;

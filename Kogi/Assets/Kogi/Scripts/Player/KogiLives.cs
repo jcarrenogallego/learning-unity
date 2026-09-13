@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using Kogi.Scripts.UI;
+using Kogi.Scripts.Environment;
 using UnityEngine.SceneManagement;
 
 namespace Kogi.Scripts.Player
@@ -25,18 +27,20 @@ namespace Kogi.Scripts.Player
 
         public void LoseLife(Vector2 respawnPosition)
         {
+            if (currentLives <= 0 || (GameFlowController.Instance != null && GameFlowController.Instance.IsFinished)) return;
             currentLives--;
             LivesChanged?.Invoke(currentLives);
             Debug.Log($"Vidas restantes: {currentLives}");
 
             if (currentLives <= 0)
             {
-                Scene activeScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(activeScene.buildIndex);
+                GameFlowController.Instance.ShowGameOver();
                 return;
             }
 
-            respawn.RespawnAt(respawnPosition);
+            string sceneName = SceneManager.GetActiveScene().name;
+            Vector2 safePosition = CheckpointState.GetRespawnPosition(sceneName, respawnPosition);
+            respawn.RespawnAt(safePosition);
         }
     }
 }

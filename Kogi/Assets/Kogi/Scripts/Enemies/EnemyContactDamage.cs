@@ -7,6 +7,11 @@ namespace Kogi.Scripts.Enemies
     {
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (!isActiveAndEnabled)
+            {
+                return;
+            }
+
             if (!collision.gameObject.TryGetComponent(out KogiDamageReceiver receiver))
             {
                 return;

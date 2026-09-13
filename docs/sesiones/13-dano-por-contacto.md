@@ -161,6 +161,11 @@ namespace Kogi.Scripts.Enemies
     {
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (!isActiveAndEnabled)
+            {
+                return;
+            }
+
             if (!collision.gameObject.TryGetComponent(out KogiDamageReceiver receiver))
             {
                 return;
@@ -177,6 +182,8 @@ namespace Kogi.Scripts.Enemies
 9. Revisa que **Console** no muestre errores rojos.
 
 ### ¿Qué recibe OnCollisionEnter2D?
+
+La comprobación `isActiveAndEnabled` evita causar daño si hemos desactivado este componente. Es importante porque Unity puede enviar mensajes de colisión a un comportamiento deshabilitado. Desactivar el daño debe impedir que un contacto pendiente quite vidas; más adelante lo usaremos al derrotar al jefe.
 
 Unity llama automáticamente a `OnCollisionEnter2D` cuando comienza una colisión 2D. Su parámetro contiene información sobre el contacto y sobre el otro `GameObject`.
 

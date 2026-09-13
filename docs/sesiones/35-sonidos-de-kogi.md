@@ -64,4 +64,4 @@ Usamos `PlayOneShot` para que un ataque pueda sonar aunque otro clip corto todav
 
 ---
 
-[⬅️ Sesión anterior](34-respuesta-visual-dano.md) · [🏠 Inicio](../../README.md)
+[⬅️ Sesión anterior](34-respuesta-visual-dano.md) · [🏠 Inicio](../../README.md) · [Siguiente sesión ➡️](36-musica-y-mezcla.md)
